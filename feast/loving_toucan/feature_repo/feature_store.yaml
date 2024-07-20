@@ -1,0 +1,17 @@
+project: loving_toucan
+provider: gcp
+registry:
+  path: gs://trading-feast-repository/registry.pb
+  cache_ttl_seconds: 60
+offline_store:
+  type: bigquery
+  dataset: poc_trading_0
+# online_store:
+#   type: sqlite
+#   path: data/online_store.db
+# datastoreでは、DB名が[default]となってしまうため、DB名は指定できない
+online_store:
+  type: datastore
+  project_id: trading-daichi-ozaki213
+  namespace: poc-trading-0
+entity_key_serialization_version: 2
